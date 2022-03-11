@@ -5,32 +5,21 @@ import rightCornerDog from "./../assets/cornerRightDog.png";
 import styled from "styled-components";
 import connectWallet from "./../assets/connectWallet.png";
 import caologom from "./../assets/logocaom.png";
+import logoD from "../assets/logoD.png";
 
 const PresaleIDOPage = () => {
   return (
     <>
       <MainWrapper>
-        <div
-          style={{
-            position: "absolute",
-            top: "10px",
-            left: 0,
-            right: 0,
-            textAlign: "center",
-          }}
-        >
-          <img
-            src={caologom}
-            alt={"Crypto WAO"}
-            style={{ width: "159px", height: "auto" }}
-          />
-        </div>
+        <LogoContainer>
+          <img src={caologom} alt={"Crypto WAO"} />
+          <img src={logoD} alt={"Crypto WAO"} />
+        </LogoContainer>
         <div
           style={{
             textAlign: "center",
             marginTop: "-80px",
             fontSize: "50px",
-            boxShadow: "0 4 4 #000 25%",
           }}
         >
           TOKEN PRICE
@@ -81,6 +70,50 @@ const ConnectWalletButton = styled.button`
 
   &:hover {
     filter: brightness(125%);
+  }
+
+  @media (min-width: 910px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @media (min-width: 1200px) {
+    right: 0;
+  }
+`;
+const LogoContainer = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  > img {
+    width: 159px;
+    height: auto;
+  }
+
+  > img:nth-child(2) {
+    display: none;
+  }
+
+  @media (min-width: 910px) {
+    right: auto;
+    > img {
+      width: 333px;
+    }
+
+    > img:nth-child(1) {
+      display: none;
+    }
+
+    > img:nth-child(2) {
+      display: block;
+      width: 333px;
+      height: 161px;
+      margin-left: 3%;
+    }
   }
 `;
 export default PresaleIDOPage;
