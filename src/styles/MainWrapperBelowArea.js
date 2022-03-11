@@ -6,7 +6,8 @@ export const MainWrapperBelowArea = styled.div`
   left: 0;
   right: 0;
   text-align: center;
-  @media (min-height: 850px) {
-    bottom: 18vh;
+
+  @media (min-width: 913px) { {
+    bottom: 20px;
   }
 `;

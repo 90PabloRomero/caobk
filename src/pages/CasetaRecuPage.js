@@ -1,10 +1,13 @@
 import { MainWrapperBelowArea } from "../styles/MainWrapperBelowArea";
-import { MainWrapperTopRightCornerArea } from "../styles/MainWrapperTopRightCornerArea";
+import {
+  MainWrapperTopRightCornerAreaDesktop,
+  MainWrapperTopRightCornerAreaMobile,
+} from "../styles/MainWrapperTopRightCornerArea";
 import { HomeButton } from "../styles/HomeButton";
 import { MarketplaceButton } from "../styles/MarketplaceButton";
 import { MainWrapper } from "../styles/MainWrapper";
 //
-import { MainWrapperCloseButton } from "../styles/MainWrapperCloseButton";
+import { MainWrapperCloseButtonMobile } from "../styles/MainWrapperCloseButtonMobile";
 import { CoinIcon } from "../styles/CoinIcon";
 import { FoodIcon } from "../styles/FoodIcon";
 import caseta from "./../assets/caseta.png";
@@ -12,6 +15,7 @@ import comprarButton from "./../assets/comprarbutton.png";
 
 //
 import subFrame from "./../assets/subFrame.png";
+import casetaRecuD from "./../assets/casetaRecuD.png";
 import styled from "styled-components";
 
 const SubFrame = styled.div`
@@ -61,49 +65,93 @@ const GridChartSection = styled.div`
     mix-blend-mode: screen;
     border-radius: 10px;
   }
+
+  @media (min-width: 910px) {
+    font-size: 23px;
+    > div {
+      grid-template-columns: 150px 100px 100px 100px 120px;
+    }
+  }
+`;
+const CasetaRecuPageWrapper = styled.div`
+  position: relative;
+  width: 260px;
+  margin: 35px auto 0 auto;
+  background: url(${casetaRecuD}) no-repeat center;
+  @media (min-width: 910px) {
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 214px auto;
+    max-width: 826px;
+    width: 100%;
+    min-height: 526px;
+    min-width: 885px;
+    margin-top: 43px;
+    .left {
+      grid-area: left;
+      margin-top: 150px;
+      margin-left: 55px;
+    }
+
+    .right {
+      grid-area: right;
+      margin-top: 150px;
+      margin-left: 35px;
+      margin-right: 50px;
+    }
+  }
 `;
 const CasetaRecuPage = () => {
   return (
     <>
       <MainWrapper>
-        <MainWrapperTopRightCornerArea>
+        <MainWrapperTopRightCornerAreaMobile>
           <div style={{ display: "flex" }}>
             <div>174</div>
             <CoinIcon />
           </div>
           <FoodIcon />
-        </MainWrapperTopRightCornerArea>
-        <MainWrapperCloseButton />
-        <div style={{ width: "260px", margin: "35px auto 0 auto" }}>
-          <SubFrame>
-            <div>
-              <img src={caseta} alt={"caseta"} />
+        </MainWrapperTopRightCornerAreaMobile>
+        <MainWrapperCloseButtonMobile />
+        <CasetaRecuPageWrapper>
+          <MainWrapperTopRightCornerAreaDesktop>
+            <div style={{ display: "flex" }}>
+              <div>174</div>
+              <CoinIcon />
             </div>
-            <div style={{ fontSize: "20px" }}>MAXI CASETA</div>
-            <div style={{ fontSize: "18px" }}>Supply 0/200</div>
-            <div
-              style={{
-                fontSize: "18px",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              174 WCoin{" "}
-              <CoinIcon
+            <FoodIcon />
+          </MainWrapperTopRightCornerAreaDesktop>
+          <div className={"left"}>
+            <SubFrame>
+              <div>
+                <img src={caseta} alt={"caseta"} />
+              </div>
+              <div style={{ fontSize: "20px" }}>MAXI CASETA</div>
+              <div style={{ fontSize: "18px" }}>Supply 0/200</div>
+              <div
                 style={{
-                  transform: "scale(0.7)",
-                  marginTop: "-5px",
-                  maxWidth: "30px",
+                  fontSize: "18px",
+                  display: "flex",
+                  justifyContent: "center",
                 }}
-              />
+              >
+                174 WCoin{" "}
+                <CoinIcon
+                  style={{
+                    transform: "scale(0.7)",
+                    marginTop: "-5px",
+                    maxWidth: "30px",
+                  }}
+                />
+              </div>
+            </SubFrame>
+            {/**/}
+            <div>
+              <ComprarButton style={{ margin: "15px auto" }} />
             </div>
-          </SubFrame>
-          {/**/}
-          <div>
-            <ComprarButton style={{ margin: "15px auto" }} />
+            {/**/}
           </div>
-          {/**/}
-          <GridChartSection>
+          <GridChartSection className={"right"}>
             <div>
               <div>TIPO</div>
               <div>TAMAÑO</div>
@@ -154,11 +202,11 @@ const CasetaRecuPage = () => {
               <div>21.600 WCoin</div>
             </div>
           </GridChartSection>
-        </div>
+        </CasetaRecuPageWrapper>
 
         <MainWrapperBelowArea>
-          <HomeButton>{` `}</HomeButton>
-          <MarketplaceButton>{` `}</MarketplaceButton>
+          <HomeButton />
+          <MarketplaceButton />
         </MainWrapperBelowArea>
       </MainWrapper>
     </>

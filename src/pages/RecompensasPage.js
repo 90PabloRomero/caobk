@@ -1,14 +1,21 @@
 import { MainWrapperBelowArea } from "../styles/MainWrapperBelowArea";
-import { MainWrapperTopRightCornerArea } from "../styles/MainWrapperTopRightCornerArea";
+import {
+  MainWrapperTopRightCornerAreaDesktop,
+  MainWrapperTopRightCornerAreaMobile,
+} from "../styles/MainWrapperTopRightCornerArea";
 import { HomeButton } from "../styles/HomeButton";
 import { MarketplaceButton } from "../styles/MarketplaceButton";
 import { MainWrapper } from "../styles/MainWrapper";
 //
-import { MainWrapperCloseButton } from "../styles/MainWrapperCloseButton";
+import {
+  MainWrapperCloseButtonDesktop,
+  MainWrapperCloseButtonMobile,
+} from "../styles/MainWrapperCloseButtonMobile";
 import { CoinIcon } from "../styles/CoinIcon";
 import { FoodIcon } from "../styles/FoodIcon";
 import WCoin from "./../assets/WCoin.png";
 import recogerButton from "./../assets/recogerButton.png";
+import subframeD from "./../assets/subFrameD.png";
 
 //
 import subFrame from "./../assets/subFrame2.png";
@@ -35,20 +42,45 @@ const ComprarButton = styled.div`
     filter: brightness(125%);
   }
 `;
+const RecompensasPageWrapper = styled.div`
+  position: relative;
+  width: 260px;
+  margin: 65px auto 0 auto;
+  @media (min-width: 910px) {
+    background: url(${subframeD}) no-repeat center;
+    max-width: 826px;
+    width: 100%;
+    min-width: 885px;
+    min-height: 526px;
+    margin-top: 50px;
 
+    > h1 {
+      margin-top: 50px;
+    }
+  }
+`;
 const RecompensasPage = () => {
   return (
     <>
       <MainWrapper>
-        <MainWrapperTopRightCornerArea>
+        <MainWrapperTopRightCornerAreaMobile>
           <div style={{ display: "flex" }}>
             <div>174</div>
             <CoinIcon />
           </div>
           <FoodIcon />
-        </MainWrapperTopRightCornerArea>
-        <MainWrapperCloseButton />
-        <div style={{ width: "260px", margin: "65px auto 0 auto" }}>
+        </MainWrapperTopRightCornerAreaMobile>
+        <MainWrapperCloseButtonMobile />
+        <RecompensasPageWrapper>
+          <h1
+            style={{
+              fontSize: "30px",
+              textAlign: "center",
+              fontWeight: 400,
+            }}
+          >
+            RECOMPENSAS
+          </h1>
           <SubFrame>
             <div>
               <div>WCoin</div>
@@ -68,11 +100,20 @@ const RecompensasPage = () => {
             <ComprarButton style={{ margin: "15px auto" }} />
           </div>
           {/**/}
-        </div>
-
+          <MainWrapperTopRightCornerAreaDesktop style={{ marginTop: -10 }}>
+            <div style={{ display: "flex" }}>
+              <div>174</div>
+              <CoinIcon />
+            </div>
+            <FoodIcon />
+          </MainWrapperTopRightCornerAreaDesktop>
+          <MainWrapperCloseButtonDesktop
+            style={{ left: "117px", top: "55px", marginTop: 0 }}
+          />
+        </RecompensasPageWrapper>
         <MainWrapperBelowArea>
-          <HomeButton>{` `}</HomeButton>
-          <MarketplaceButton>{` `}</MarketplaceButton>
+          <HomeButton />
+          <MarketplaceButton />
         </MainWrapperBelowArea>
       </MainWrapper>
     </>

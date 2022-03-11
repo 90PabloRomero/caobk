@@ -6,25 +6,32 @@ import { HomeButton } from "../styles/HomeButton";
 import { MarketplaceButton } from "../styles/MarketplaceButton";
 import coinButton from "./../assets/CoinButton.png";
 import multiplierButton from "./../assets/MultiplierButton.png";
-import { MainWrapperCloseButton } from "../styles/MainWrapperCloseButton";
-import { MainWrapperTopRightCornerArea } from "../styles/MainWrapperTopRightCornerArea";
+import {
+  MainWrapperCloseButtonDesktop,
+  MainWrapperCloseButtonMobile,
+} from "../styles/MainWrapperCloseButtonMobile";
 import { CoinIcon } from "../styles/CoinIcon";
 import { FoodIcon } from "../styles/FoodIcon";
+import {
+  MainWrapperTopRightCornerAreaDesktop,
+  MainWrapperTopRightCornerAreaMobile,
+} from "../styles/MainWrapperTopRightCornerArea";
+import capsulaembrioD from "./../assets/capsulaembrioD.png";
 
 const CapsulaEmbrioPage = () => {
   return (
     <>
       <MainWrapper>
-        <MainWrapperTopRightCornerArea>
+        <MainWrapperTopRightCornerAreaMobile>
           <div style={{ display: "flex" }}>
             <div>174</div>
             <CoinIcon />
           </div>
           <FoodIcon />
-        </MainWrapperTopRightCornerArea>
-        <MainWrapperCloseButton />
-        <div>
-          <div style={{ textAlign: "Center", marginTop: "40%" }}>
+        </MainWrapperTopRightCornerAreaMobile>
+        <MainWrapperCloseButtonMobile />
+        <CapsulaEmbrioPageWrapper>
+          <div style={{ textAlign: "center" }}>
             <video
               src={CAOEmbryo}
               style={{ maxWidth: "235px" }}
@@ -37,15 +44,42 @@ const CapsulaEmbrioPage = () => {
             <CoinsButton />
             <MultiplierButton />
           </div>
-        </div>
+
+          <MainWrapperTopRightCornerAreaDesktop style={{ marginTop: 0 }}>
+            <div style={{ display: "flex" }}>
+              <div>174</div>
+              <CoinIcon />
+            </div>
+            <FoodIcon />
+          </MainWrapperTopRightCornerAreaDesktop>
+          <MainWrapperCloseButtonDesktop
+            style={{ left: "10px", top: "55px", marginTop: 0 }}
+          />
+        </CapsulaEmbrioPageWrapper>
         <MainWrapperBelowArea>
-          <HomeButton>{` `}</HomeButton>
-          <MarketplaceButton>{` `}</MarketplaceButton>
+          <HomeButton />
+          <MarketplaceButton />
         </MainWrapperBelowArea>
       </MainWrapper>
     </>
   );
 };
+const CapsulaEmbrioPageWrapper = styled.div`
+  position: relative;
+  width: 260px;
+  margin-top: 40%;
+  @media (min-width: 910px) {
+    background: url(${capsulaembrioD}) no-repeat center;
+    max-width: 826px;
+    width: 100%;
+    min-width: 885px;
+    min-height: 526px;
+    margin-top: 20px;
+    > div {
+      margin-top: 140px;
+    }
+  }
+`;
 const CoinsButton = styled.button`
   background: url(${coinButton}) no-repeat;
   border: 0;

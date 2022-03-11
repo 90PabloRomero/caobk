@@ -7,6 +7,9 @@ import CapsulaEmbrioPage from "../pages/CapsulaEmbrio";
 import RecompensasPage from "../pages/RecompensasPage";
 import CharactersPage from "../pages/CharactersPage";
 import { Nfts } from "../mockups/nfts";
+import GamePage from "../pages/GamePage";
+import PresalePage from "../pages/PresalePage";
+import PresaleIDOPage from "../pages/PresaleIDOPage";
 
 function Routers() {
   return (
@@ -19,6 +22,9 @@ function Routers() {
         <Route path="/capsulaembrio" element={<CapsulaEmbrioPage />} />
         <Route path="/recompensas" element={<RecompensasPage />} />
         <Route path="/personajes" element={<CharactersPage Nfts={Nfts} />} />
+        <Route path="/game" element={<GamePage />} />
+        <Route path="/presale" element={<PresalePage />} />
+        <Route path="/presale-ido" element={<PresaleIDOPage />} />
       </Routes>
     </Router>
   );

@@ -1,5 +1,5 @@
-import pastorAlemanL from "./../assets/NFTs/legendary/pitbull-l.png";
-import pitBullE from "./../assets/NFTs/epic/gsheperd-e.png";
+import pitBullE from "./../assets/NFTs/legendary/pitbull-l.png";
+import pastorAlemanL from "./../assets/NFTs/epic/gsheperd-e.png";
 import gRetrieverC from "./../assets/NFTs/common/gretriever-c.png";
 import sinuR from "./../assets/NFTs/rare/sinu-r.png";
 import dobermanM from "./../assets/NFTs/mythical/doberman-m.png";
@@ -16,9 +16,22 @@ export const Nfts = [
     s5: 46,
     rarity: "ÉPICO",
     energyleft: "334",
+    name: "PASTOR ALEMÁN",
   },
   {
     id: 2,
+    imageUrl: gRetrieverC,
+    s1: 23,
+    s2: 65,
+    s3: 15,
+    s4: 25,
+    s5: 66,
+    rarity: "COMÚN",
+    energyleft: "550",
+    name: "GOLDEN RETRIEVER",
+  },
+  {
+    id: 3,
     imageUrl: pitBullE,
     s1: 72,
     s2: 25,
@@ -27,17 +40,7 @@ export const Nfts = [
     s5: 26,
     rarity: "LEGENDARIO",
     energyleft: "124",
-  },
-  {
-    id: 3,
-    imageUrl: gRetrieverC,
-    s1: 23,
-    s2: 65,
-    s3: 15,
-    s4: 25,
-    s5: 66,
-    rarity: "COMÚN",
-    energyleft: "500",
+    name: "PITBULL",
   },
   {
     id: 4,
@@ -49,6 +52,7 @@ export const Nfts = [
     s5: 26,
     rarity: "RARO",
     energyleft: "324",
+    name: "SHIBA INU",
   },
   {
     id: 5,
@@ -60,6 +64,7 @@ export const Nfts = [
     s5: 36,
     rarity: "MÍTICO",
     energyleft: "034",
+    name: "DOBERMAN",
   },
   {
     id: 6,
@@ -71,5 +76,6 @@ export const Nfts = [
     s5: 26,
     rarity: "SUPER RARO",
     energyleft: "124",
+    name: "DÁLMATA",
   },
 ];
