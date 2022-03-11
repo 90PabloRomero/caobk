@@ -10,12 +10,15 @@ import { Nfts } from "../mockups/nfts";
 import GamePage from "../pages/GamePage";
 import PresalePage from "../pages/PresalePage";
 import PresaleIDOPage from "../pages/PresaleIDOPage";
+import DEVMODEONLYSitemap from "../pages/DEVMODEONLYSitemap";
 
 function Routers() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/" element={<DEVMODEONLYSitemap />} />
+
+        <Route path="/home" element={<HomePage />} />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/housing" element={<CasetaRecuPage />} />
         <Route path="/options" element={<ModosPage />} />
