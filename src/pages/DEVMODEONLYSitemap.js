@@ -1,5 +1,4 @@
 import CAOLogo from "../assets/logo.png";
-import connectWallet from "../assets/connectWallet.png";
 import styled from "styled-components";
 import CAOLogoD from "./../assets/logoD.png";
 import { Link } from "react-router-dom";
@@ -56,12 +55,6 @@ const CAOLogoWrap = styled.div`
     margin-top: 10%;
   }
 `;
-const WalletWrap = styled.div`
-  text-align: center;
-  @media (min-width: 910px) {
-    margin-top: -10%;
-  }
-`;
 const CAOLogoStyledImgMobile = styled.img`
   max-width: 235px;
   @media (min-width: 910px) {
@@ -74,18 +67,6 @@ const CAOLogoStyledImgDesktop = styled.img`
     display: block;
     max-width: 631px;
     max-height: 302px;
-  }
-`;
-const ConnectWalletButton = styled.button`
-  background: url(${connectWallet}) no-repeat;
-  border: 0;
-  width: 299px;
-  height: 41px;
-  transition: filter 0.252s;
-  cursor: pointer;
-
-  &:hover {
-    filter: brightness(125%);
   }
 `;
 
