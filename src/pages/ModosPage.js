@@ -21,8 +21,8 @@ import apuestaD from "./../assets/apuestaD.png";
 import aventuraD from "./../assets/aventuraD.png";
 import supervivenciaD from "./../assets/supervivenciaD.png";
 import styled from "styled-components";
-import Carousel from "framer-motion-carousel";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const GridOptionsDiv = styled.div`
   display: grid;
@@ -61,6 +61,12 @@ const ModosDesktop = styled.div`
     display: flex;
   }
 `;
+const ModosMobile = styled.div`
+  display: flex;
+  @media (min-width: 910px) {
+    display: none;
+  }
+`;
 const ModosPage = () => {
   return (
     <MainWrapper>
@@ -76,30 +82,34 @@ const ModosPage = () => {
       </MainWrapperTopRightCornerAreaMobile>
       <MainWrapperCloseButtonMobile />
       <ModosPageWrapper>
-        <div>
-          <Carousel
+        <ModosMobile>
+          {/*<Carousel
             interval={0}
             loop={true}
             autoPlay={false}
             renderDots={() => <div />}
             renderArrowRight={({ handleNext }) => <div />}
             renderArrowLeft={({ handlePrev }) => <div />}
+          >*/}
+          <div style={{ maxWidth: "136px" }}>
+            <img draggable={false} src={modoAventura} alt={"supervivencia"} />
+          </div>
+          <div
+            style={{ maxWidth: "181px", width: "181px", marginTop: "-30px" }}
           >
-            <div style={{ maxWidth: "136px" }}>
-              <img draggable={false} src={modoAventura} alt={"supervivencia"} />
-            </div>
-            <div style={{ maxWidth: "161px" }}>
+            <Link to={"/game"}>
               <img
                 draggable={false}
                 src={modoSupervivencia}
                 alt={"supervivencia"}
               />
-            </div>
-            <div style={{ maxWidth: "136px" }}>
-              <img draggable={false} src={modoApuesta} alt={"supervivencia"} />
-            </div>
-          </Carousel>
-        </div>
+            </Link>
+          </div>
+          <div style={{ maxWidth: "136px" }}>
+            <img draggable={false} src={modoApuesta} alt={"supervivencia"} />
+          </div>
+          {/* </Carousel>*/}
+        </ModosMobile>
 
         <ModosDesktop
           style={{
@@ -113,11 +123,13 @@ const ModosPage = () => {
             alt={"modo apuesta"}
             style={{ width: "240px", height: "288px" }}
           />
-          <img
-            src={supervivenciaD}
-            alt={"modo supervivencia"}
-            style={{ width: "240px", height: "288px" }}
-          />
+          <Link to={"/game"}>
+            <img
+              src={supervivenciaD}
+              alt={"modo supervivencia"}
+              style={{ width: "240px", height: "288px" }}
+            />
+          </Link>
           <img
             src={aventuraD}
             alt={"modo aventura"}
@@ -125,38 +137,46 @@ const ModosPage = () => {
           />
         </ModosDesktop>
         <GridOptionsDiv>
-          <div style={{ textAlign: "center" }}>
-            <img
-              src={inventarioIcon}
-              alt={"inventario"}
-              style={{ width: "51px", height: "51px" }}
-            />
-            <div>INVENTARIO</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <img
-              src={shopIcon}
-              alt={"shop"}
-              style={{ width: "76px", height: "55px" }}
-            />
-            <div>SHOP</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <img
-              src={houseIcon}
-              alt={"HOUSE"}
-              style={{ width: "84px", height: "56px" }}
-            />
-            <div>HOUSE</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <img
-              src={dogIcon}
-              alt={"PERROS"}
-              style={{ width: "54px", height: "53px" }}
-            />
-            <div>PERROS</div>
-          </div>
+          <Link to={"/inventory"}>
+            <div style={{ textAlign: "center" }}>
+              <img
+                src={inventarioIcon}
+                alt={"inventario"}
+                style={{ width: "51px", height: "51px" }}
+              />
+              <div>INVENTARIO</div>
+            </div>
+          </Link>
+          <Link to={"/presale"}>
+            <div style={{ textAlign: "center" }}>
+              <img
+                src={shopIcon}
+                alt={"shop"}
+                style={{ width: "76px", height: "55px" }}
+              />
+              <div>SHOP</div>
+            </div>
+          </Link>
+          <Link to={"/housing"}>
+            <div style={{ textAlign: "center" }}>
+              <img
+                src={houseIcon}
+                alt={"HOUSE"}
+                style={{ width: "84px", height: "56px" }}
+              />
+              <div>HOUSE</div>
+            </div>
+          </Link>
+          <Link to={"/personajes"}>
+            <div style={{ textAlign: "center" }}>
+              <img
+                src={dogIcon}
+                alt={"PERROS"}
+                style={{ width: "54px", height: "53px" }}
+              />
+              <div>PERROS</div>
+            </div>
+          </Link>
         </GridOptionsDiv>
         <MainWrapperTopRightCornerAreaDesktop>
           <div style={{ display: "flex" }}>
@@ -168,8 +188,12 @@ const ModosPage = () => {
       </ModosPageWrapper>
 
       <MainWrapperBelowArea>
-        <HomeButton />
-        <MarketplaceButton />
+        <Link to={"/"}>
+          <HomeButton />
+        </Link>
+        <Link to={"/presale"}>
+          <MarketplaceButton />
+        </Link>
       </MainWrapperBelowArea>
     </MainWrapper>
   );

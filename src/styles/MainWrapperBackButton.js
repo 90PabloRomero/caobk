@@ -9,12 +9,12 @@ export const MainWrapperBackButton = styled.div`
   cursor: pointer;
   background: url(${backButton}) no-repeat center;
   height: 35px;
-  width: 33px;
+  width: 35px;
   @media (min-height: 850px) {
     top: 24%;
   }
   @media (min-width: 910px) {
-    left: 35px;
-    top: 25%;
+    left: 5px;
+    top: -42px;
   }
 `;

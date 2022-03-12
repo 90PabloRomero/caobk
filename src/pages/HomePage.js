@@ -6,6 +6,8 @@ import { MainWrapperBelowArea } from "../styles/MainWrapperBelowArea";
 import { HomeButton } from "../styles/HomeButton";
 import { MarketplaceButton } from "../styles/MarketplaceButton";
 import CAOLogoD from "./../assets/logoD.png";
+import "./../metamask/contract";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -16,11 +18,26 @@ const HomePage = () => {
           <CAOLogoStyledImgDesktop src={CAOLogoD} alt={"Crypto WAO"} />
         </CAOLogoWrap>
         <WalletWrap style={{ textAlign: "center" }}>
-          <ConnectWalletButton />
+          <ConnectWalletButton id={"connectButton"} />
         </WalletWrap>
+        <div
+          style={{
+            textAlign: "center",
+            maxWidth: "250px",
+            margin: "-130px auto 0 auto",
+          }}
+        >
+          <Link to={"/options"} style={{ fontSize: "23px" }}>
+            Ir a Seleccion de modos de juego(demo)
+          </Link>
+        </div>
         <MainWrapperBelowArea>
-          <HomeButton />
-          <MarketplaceButton />
+          <Link to={"/"}>
+            <HomeButton />
+          </Link>
+          <Link to={"/presale"}>
+            <MarketplaceButton />
+          </Link>
         </MainWrapperBelowArea>
       </MainWrapper>
     </>

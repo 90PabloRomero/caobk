@@ -13,6 +13,7 @@ import binance from "./../assets/binance.png";
 import caologom from "./../assets/logocaom.png";
 import logoD from "./../assets/logoD.png";
 import presaleDesktopSubBG from "./../assets/presaleDesktopSubBG.png";
+import { Link } from "react-router-dom";
 
 const LogoContainer = styled.div`
   position: absolute;
@@ -57,67 +58,67 @@ const PresalePageWrapper = styled.div`
     background: url(${presaleDesktopSubBG}) no-repeat center;
     margin-left: -5px;
     height: 575px;
-    margin-top: 50px;
+    margin-top: -100px;
   }
 `;
 const PresalePage = () => {
   return (
     <>
       <MainWrapper>
-        <LogoContainer>
-          <img src={caologom} alt={"Crypto WAO"} />
-          <img src={logoD} alt={"Crypto WAO"} />
-        </LogoContainer>
-        <MainWrapper>
-          <PresalePageWrapper>
-            <div
-              style={{
-                padding: "0 1rem",
-                display: "grid",
-                placeItems: "center",
-                position: "relative",
-                zIndex: 2,
-              }}
-            >
-              <EmbryoContainer />
-              <div>
-                <span style={{ fontSize: "24px" }}>NFT</span>{" "}
-                <span style={{ fontSize: "16px" }}>Price:</span>{" "}
-                <span style={{ fontSize: "23px" }}>15</span>
-                <span style={{ fontSize: "16px" }}>BUSD</span>
-                <img
-                  src={binance}
-                  alt={""}
-                  style={{ width: "24px", height: "23px" }}
-                />
-              </div>
-              <div style={{ fontSize: "23px" }}>
-                <form>
-                  OPEN:
-                  <input
-                    type={"number"}
-                    style={{
-                      background: "none",
-                      border: 0,
-                      maxWidth: "45px",
-                      marginLeft: "5px",
-                    }}
-                  />
-                </form>
-              </div>
+        <Link to={"/"}>
+          <LogoContainer>
+            <img src={caologom} alt={"Crypto WAO"} />
+            <img src={logoD} alt={"Crypto WAO"} />
+          </LogoContainer>
+        </Link>
+        <PresalePageWrapper>
+          <div
+            style={{
+              padding: "0 1rem",
+              display: "grid",
+              placeItems: "center",
+              position: "relative",
+              zIndex: 2,
+            }}
+          >
+            <EmbryoContainer />
+            <div>
+              <span style={{ fontSize: "24px" }}>NFT</span>{" "}
+              <span style={{ fontSize: "16px" }}>Price:</span>{" "}
+              <span style={{ fontSize: "23px" }}>15</span>
+              <span style={{ fontSize: "16px" }}>BUSD</span>
               <img
-                src={openButton}
-                alt={"open"}
-                style={{
-                  maxWidth: "131px",
-                  maxHeight: "32px",
-                  margin: ".31rem 0",
-                }}
+                src={binance}
+                alt={""}
+                style={{ width: "24px", height: "23px" }}
               />
             </div>
-            <ConnectWalletButton />
-          </PresalePageWrapper>
-        </MainWrapper>
+            <div style={{ fontSize: "23px" }}>
+              <form>
+                OPEN:
+                <input
+                  type={"number"}
+                  style={{
+                    background: "none",
+                    border: 0,
+                    maxWidth: "45px",
+                    marginLeft: "5px",
+                  }}
+                />
+              </form>
+            </div>
+            <img
+              src={openButton}
+              alt={"open"}
+              style={{
+                maxWidth: "131px",
+                maxHeight: "32px",
+                margin: ".31rem 0",
+              }}
+            />
+          </div>
+          <ConnectWalletButton />
+        </PresalePageWrapper>
         <MainWrapperBelowArea>
           <DogLeftCorner>
             <img src={leftCornerDog} alt={""} />

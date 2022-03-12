@@ -30,6 +30,7 @@ import listbuttonD1 from "./../assets/listbuttonD1.png";
 import listbuttonD2 from "./../assets/listbuttonD2.png";
 import listbuttonD3 from "./../assets/listbuttonD3.png";
 import characterStatsD from "./../assets/characterStatsD.png";
+import { Link } from "react-router-dom";
 
 const BarFillerTop = styled.div`
   position: absolute;
@@ -120,7 +121,7 @@ const ListHomeButton = styled.div`
 const CharactersPageWrapper = styled.div`
   position: relative;
   width: 260px;
-  margin: 35px auto 0 16px;
+  margin: -110px auto 0 16px;
 
   > div:nth-child(2) {
     > div:nth-child(1) {
@@ -138,7 +139,7 @@ const CharactersPageWrapper = styled.div`
     width: 100%;
     min-width: 885px;
     min-height: 526px;
-    margin-top: 140px;
+    margin-top: -10px;
     display: flex;
     h1 {
       display: block;
@@ -277,7 +278,9 @@ const CharactersPage = ({ Nfts }) => {
           </div>
           <FoodIcon />
         </MainWrapperTopRightCornerAreaMobile>
-        <MainWrapperCloseButtonMobile />
+        <Link to={"/options"}>
+          <MainWrapperCloseButtonMobile />
+        </Link>
         <CharactersPageWrapper>
           <div>
             {/*view dog picture and stats inside flex*/}
@@ -458,15 +461,21 @@ const CharactersPage = ({ Nfts }) => {
                 </div>
                 <FoodIcon />
               </MainWrapperTopRightCornerAreaDesktop>
-              <MainWrapperCloseButtonDesktop
-                style={{ left: "0", top: "20px", marginTop: 0 }}
-              />
+              <Link to={"/options"}>
+                <MainWrapperCloseButtonDesktop
+                  style={{ left: "0", top: "20px", marginTop: 0 }}
+                />
+              </Link>
             </div>
           </div>
         </CharactersPageWrapper>
         <MainWrapperBelowArea>
-          <HomeButton />
-          <MarketplaceButton />
+          <Link to={"/"}>
+            <HomeButton />
+          </Link>
+          <Link to={"/presale"}>
+            <MarketplaceButton />
+          </Link>
         </MainWrapperBelowArea>
       </MainWrapper>
     </>

@@ -14,4 +14,7 @@ export const MainWrapperSettingsButton = styled.div`
     top: 25%;
     right: 20%;
   }
+  @media (min-width: 910px) {
+    top: -43px;
+  }
 `;

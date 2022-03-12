@@ -17,6 +17,7 @@ import comprarButton from "./../assets/comprarbutton.png";
 import subFrame from "./../assets/subFrame.png";
 import casetaRecuD from "./../assets/casetaRecuD.png";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const SubFrame = styled.div`
   background: url(${subFrame}) no-repeat center;
@@ -205,8 +206,12 @@ const CasetaRecuPage = () => {
         </CasetaRecuPageWrapper>
 
         <MainWrapperBelowArea>
-          <HomeButton />
-          <MarketplaceButton />
+          <Link to={"/"}>
+            <HomeButton />
+          </Link>
+          <Link to={"/presale"}>
+            <MarketplaceButton />
+          </Link>
         </MainWrapperBelowArea>
       </MainWrapper>
     </>

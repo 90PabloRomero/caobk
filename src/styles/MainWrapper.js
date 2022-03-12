@@ -129,6 +129,15 @@ export const MainWrapper = ({ children }) => {
         padding-left: 50px;
       }
     }
+
+    a {
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        color: turquoise;
+      }
+    }
   `;
   return (
     <MainWrapperStyles>

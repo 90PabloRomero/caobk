@@ -12,6 +12,7 @@ import { MainWrapperBackButton } from "../styles/MainWrapperBackButton";
 import { MainWrapperSettingsButton } from "../styles/MainWrapperSettingsButton";
 import slideingameframe from "./../assets/slideingameframe.png";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const GamePage = () => {
   return (
@@ -24,9 +25,14 @@ const GamePage = () => {
           </div>
           <FoodIcon />
         </MainWrapperTopRightCornerAreaMobile>
-        <MainWrapperBackButton />
-        <MainWrapperSettingsButton />
         <GameFrame>
+          <Link to={"/options"}>
+            <MainWrapperBackButton />
+          </Link>
+          <Link to={"/options"}>
+            <MainWrapperSettingsButton />{" "}
+          </Link>
+
           <iframe
             title={"WAOGame"}
             src={"http://52.15.191.202:4200/waogame/"}
@@ -39,7 +45,7 @@ const GamePage = () => {
               style={{ maxWidth: "82px", maxHeight: "26px" }}
             />
           </SlideInGameFrame>
-          <MainWrapperTopRightCornerAreaDesktop style={{ marginTop: -60 }}>
+          <MainWrapperTopRightCornerAreaDesktop style={{ marginTop: -50 }}>
             <div style={{ display: "flex" }}>
               <div>174</div>
               <CoinIcon />
@@ -48,8 +54,12 @@ const GamePage = () => {
           </MainWrapperTopRightCornerAreaDesktop>
         </GameFrame>
         <MainWrapperBelowArea>
-          <HomeButton />
-          <MarketplaceButton />
+          <Link to={"/"}>
+            <HomeButton />
+          </Link>
+          <Link to={"/presale"}>
+            <MarketplaceButton />
+          </Link>
         </MainWrapperBelowArea>
       </MainWrapper>
     </>
@@ -64,19 +74,22 @@ const GameFrame = styled.div`
   margin-top: 40px;
   position: relative;
   @media (min-width: 910px) {
-    min-width: 888px;
-    max-width: 888px;
+    min-width: 880px;
+    max-width: 880px;
     max-height: none;
-    height: 457px;
+    height: 477px;
+    margin-left: -6px;
     margin-top: 85px;
   }
 `;
 const SlideInGameFrame = styled.div`
   position: absolute;
   left: 0;
-  bottom: -10px;
+  bottom: -13px;
   right: 0;
   text-align: center;
+  z-index: 2;
+  cursor: pointer;
 `;
 
 export default GamePage;

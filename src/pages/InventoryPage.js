@@ -28,6 +28,7 @@ import {
 } from "../styles/MainWrapperTopRightCornerArea";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 //
 const CarouselRightButton = styled.div`
   background: url(${carouselRight}) no-repeat center;
@@ -60,7 +61,7 @@ const BarFiller = styled.div`
 `;
 const InventoryPageWrapperMobile = styled.div`
   width: 260px;
-  margin: 35px auto 0 auto;
+  margin: -110px auto 0 auto;
   @media (min-width: 910px) {
     display: none; // definitivamente no va a funcionar este carousel sin un refactor, mejor busco otro
   }
@@ -73,7 +74,7 @@ const InventoryPageWrapperDesktop = styled.div`
     width: 100%;
     min-height: 526px;
     min-width: 885px;
-    margin-top: 43px;
+    margin-top: -110px;
     display: flex;
     position: relative;
   }
@@ -110,7 +111,9 @@ const InventoryPage = () => {
           </div>
           <FoodIcon />
         </MainWrapperTopRightCornerAreaMobile>
-        <MainWrapperCloseButtonMobile />
+        <Link to={"/options"}>
+          <MainWrapperCloseButtonMobile />
+        </Link>
         <InventoryPageWrapperDesktop>
           <div style={{ marginLeft: "auto" }}>
             <MainWrapperTopRightCornerAreaDesktop>
@@ -124,7 +127,9 @@ const InventoryPage = () => {
           {/*  */}
           <TwoBoxFlexContainer>
             <div>
-              <MainWrapperCloseButtonDesktop />
+              <Link to={"/options"}>
+                <MainWrapperCloseButtonDesktop />
+              </Link>
               <Carousel2
                 slidesToShow={2}
                 wrapAround={true}
@@ -369,8 +374,12 @@ const InventoryPage = () => {
         </InventoryPageWrapperMobile>
 
         <MainWrapperBelowArea>
-          <HomeButton />
-          <MarketplaceButton />
+          <Link to={"/"}>
+            <HomeButton />
+          </Link>
+          <Link to={"/presale"}>
+            <MarketplaceButton />
+          </Link>
         </MainWrapperBelowArea>
       </MainWrapper>
     </>

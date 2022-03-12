@@ -17,6 +17,7 @@ import {
   MainWrapperTopRightCornerAreaMobile,
 } from "../styles/MainWrapperTopRightCornerArea";
 import capsulaembrioD from "./../assets/capsulaembrioD.png";
+import { Link } from "react-router-dom";
 
 const CapsulaEmbrioPage = () => {
   return (
@@ -57,8 +58,12 @@ const CapsulaEmbrioPage = () => {
           />
         </CapsulaEmbrioPageWrapper>
         <MainWrapperBelowArea>
-          <HomeButton />
-          <MarketplaceButton />
+          <Link to={"/"}>
+            <HomeButton />
+          </Link>
+          <Link to={"/presale"}>
+            <MarketplaceButton />
+          </Link>
         </MainWrapperBelowArea>
       </MainWrapper>
     </>

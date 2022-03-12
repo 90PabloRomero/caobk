@@ -16,9 +16,9 @@ function Routers() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<DEVMODEONLYSitemap />} />
+        <Route exact path="/dev" element={<DEVMODEONLYSitemap />} />
 
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/housing" element={<CasetaRecuPage />} />
         <Route path="/options" element={<ModosPage />} />
