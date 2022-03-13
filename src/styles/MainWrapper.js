@@ -17,7 +17,6 @@ import backButton from "./../assets/backButton.png";
 
 export const MainWrapper = ({ children }) => {
   const location = useLocation();
-
   const MainWrapperStyles = styled.main`
     min-height: 100vh;
     display: grid;
@@ -139,6 +138,7 @@ export const MainWrapper = ({ children }) => {
       }
     }
   `;
+
   return (
     <MainWrapperStyles>
       <GlobalStyle />

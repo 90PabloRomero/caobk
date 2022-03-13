@@ -1,15 +1,68 @@
 import { MainWrapper } from "../styles/MainWrapper";
 import CAOLogo from "../assets/logo.png";
-import connectWallet from "../assets/connectWallet.png";
-import styled from "styled-components";
+import CAOLogoD from "./../assets/logoD.png";
+import "./../metamask/contract";
+import connectWalletButton from "./../assets/connectWallet.png";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { connectWallet, getCurrentWalletConnected } from "../utils/interact.js";
 import { MainWrapperBelowArea } from "../styles/MainWrapperBelowArea";
 import { HomeButton } from "../styles/HomeButton";
 import { MarketplaceButton } from "../styles/MarketplaceButton";
-import CAOLogoD from "./../assets/logoD.png";
-import "./../metamask/contract";
-import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const HomePage = () => {
+  const [walletAddress, setWallet] = useState("");
+  const [status, setStatus] = useState("");
+  useEffect(async () => {
+    const { address, status } = await getCurrentWalletConnected();
+
+    setWallet(address);
+    setStatus(status);
+    // setModalOpen(true);
+
+    addWalletListener();
+  }, []);
+
+  function addWalletListener() {
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", (accounts) => {
+        if (accounts.length > 0) {
+          setWallet(accounts[0]);
+          // // once connected,check existing wallet in db and open modal with create account form
+          // api
+          //   .post("/checkifwalletexist", {
+          //     params: { walletaddress: accounts[0] },
+          //   })
+          //   .then(function (res) {
+          //     if (res.data.success === "existed") {
+          //       localStorage.setItem("uuid", res.data.uuid);
+          //       localStorage.setItem("token", res.data.token);
+          //       setModalOpen(false);
+          //       navigate("/compra-egg");
+          //     } else if (res.data.success === "unexisted") {
+          //       setModalOpen(true); // modified by tuktuk
+          //     }
+          //   });
+        } else {
+          setWallet("");
+          // setModalOpen(false);
+        }
+      });
+    } else {
+      setStatus(
+        "You must install Metamask, a virtual Ethereum wallet, in your browser."
+      );
+    }
+  }
+
+  const connectWalletPressed = async () => {
+    const walletResponse = await connectWallet();
+    setStatus(walletResponse.status);
+    setWallet(walletResponse.address);
+  };
+  const navigate = useNavigate();
+
   return (
     <>
       <MainWrapper>
@@ -18,7 +71,11 @@ const HomePage = () => {
           <CAOLogoStyledImgDesktop src={CAOLogoD} alt={"Crypto WAO"} />
         </CAOLogoWrap>
         <WalletWrap style={{ textAlign: "center" }}>
-          <ConnectWalletButton id={"connectButton"} />
+          {walletAddress === "" ? (
+            <ConnectWalletButton onClick={connectWalletPressed()} />
+          ) : (
+            <Link to={"/presale"}>Continuar a pantalla de presale</Link>
+          )}
         </WalletWrap>
         <div
           style={{
@@ -71,7 +128,7 @@ const CAOLogoStyledImgDesktop = styled.img`
   }
 `;
 const ConnectWalletButton = styled.button`
-  background: url(${connectWallet}) no-repeat;
+  background: url(${connectWalletButton}) no-repeat;
   border: 0;
   width: 299px;
   height: 41px;
